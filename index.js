@@ -2,9 +2,12 @@
 const imageInput = document.getElementById("imageInput");
 const processButton = document.getElementById("processButton");
 const uploadedImage = document.getElementById("uploadedImage");
+const walletAddressDisplay = document.getElementById("walletAddressDisplay");
+const balanceDisplay = document.getElementById("balanceDisplay");
 const extractedText = document.getElementById("extractedText");
 // Define the regex pattern
-const pattern = /^[a-zA-Z0-9]{4}\.\.\.[a-zA-Z0-9]{4}$/;
+const walletPattern = /\s*[a-zA-Z0-9]{4}\.\.\.[a-zA-Z0-9]{4}\s*/;
+const balancePattern = /\s*10\s+UXUY\s*/i;
 
 let imageFile = null;
 
@@ -42,6 +45,10 @@ processButton.addEventListener("click", () => {
     .then(({ data: { text } }) => {
       // Display the extracted text
       extractedText.textContent = text;
+      const walletAddress = text.match(walletPattern);
+      const balance = text.match(balancePattern);
+      walletAddressDisplay.textContent = walletAddress;
+      balanceDisplay.textContent = balance;
     })
     .catch((err) => {
       // Handle errors
