@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Detection with Tesseract.js</title>
+  </head>
+  <body>
+    <h1>Text Detection from Image</h1>
+
+    <!-- File input to upload an image -->
+    <input type="file" id="imageInput" accept="image/*" />
+
+    <!-- Button to process the uploaded image -->
+    <button id="processButton">Extract Text</button>
+
+    <!-- Display the uploaded image -->
+    <div>
+      <h3>Uploaded Image:</h3>
+      <img
+        id="uploadedImage"
+        src=""
+        alt="Uploaded Image"
+        style="max-width: 100%; height: auto"
+      />
+    </div>
+
+    <!-- Display extracted text -->
+    <div>
+      <h3>Extracted Text:</h3>
+      <pre id="extractedText"></pre>
+    </div>
+
+    <!-- Include Tesseract.js -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
